@@ -1,0 +1,5 @@
+# .npmignore
+.storybook
+node_modules
+src
+rollup.config.js

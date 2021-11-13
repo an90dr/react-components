@@ -1,21 +1,8 @@
-import React, { Component, CSSProperties } from 'react';
+
+import React from 'react';
 import './Modal.css';
 
-interface IProps {
-    title?: string,
-    footer?: any,
-    headerSeparator?: boolean,
-    footerSeparator?: boolean,
-    visibility?: boolean
-    bodyStyle?: CSSProperties 
-}
-
-interface IState {
-    visibility: boolean | undefined
-}
-
-
-class Modal extends Component<IProps, IState>{
+export class Modal extends React.Component {
 
     static defaultProps = {
         headerSeparator: true,
@@ -23,20 +10,19 @@ class Modal extends Component<IProps, IState>{
         visibility: true
     };
 
-    constructor(props: IProps) {
+    constructor(props) {
         super(props);
         this.state = {visibility: props.visibility || true};
     }
 
-    
-    componentWillReceiveProps(nextProps: IProps) {
+    componentWillReceiveProps(nextProps) {
         // You don't have to do this check first, but it can help prevent an unneeded render
         if (nextProps.visibility !== this.state.visibility) {
         this.setState({ visibility: nextProps.visibility });
         }
     }
 
-    render() {
+    render(){
 
         const { footer, headerSeparator, footerSeparator, visibility } = this.props;
         const {visibility: stateVisibility} = this.state;
@@ -46,7 +32,7 @@ class Modal extends Component<IProps, IState>{
             <div className={stateVisibility ? "modal" : "modal hidden"}>
                 <div className="modal-content">
                     <div className={(headerSeparator) ? "modal-header line" : "modal-header"}>
-                        <span className="close" onClick={(e: any)=>
+                        <span className="close" onClick={(e)=>
                             {
                                 this.setState({visibility : false});
                             }}>&times;</span>
@@ -62,6 +48,5 @@ class Modal extends Component<IProps, IState>{
                 </div>
             </div>);
     }
-}
 
-export default Modal;
+}
