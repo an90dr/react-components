@@ -1,9 +1,9 @@
 {
   "name": "react-components-free",
-  "version": "1.0.1",
+  "version": "1.0.9",
   "description": "react components for free",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.es.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
@@ -16,7 +16,9 @@
     "@babel/core": "^7.16.0",
     "@babel/plugin-proposal-class-properties": "^7.16.0",
     "@babel/preset-react": "^7.16.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
+    "@rollup/plugin-typescript": "^8.3.0",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-essentials": "^6.3.12",
     "@storybook/addon-links": "^6.3.12",
@@ -29,7 +31,8 @@
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss": "^4.0.1",
-    "rollup-plugin-terser": "^7.0.2"
+    "rollup-plugin-terser": "^7.0.2",
+    "typescript": "^4.4.4"
   },
   "peerDependencies": {
     "react": "^17.0.2",

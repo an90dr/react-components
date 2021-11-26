@@ -2,23 +2,35 @@
 import React from 'react';
 import './Modal.css';
 
-export class Modal extends React.Component {
+type IProps = {
+    headerSeparator: boolean,
+    footerSeparator: boolean,
+    visibility: boolean,
+    footer: JSX.Element,
+    title: string
+}
 
+type IState = {
+    visibility: boolean
+}
+
+class Modal extends React.Component<IProps, IState> {
+    
     static defaultProps = {
         headerSeparator: true,
         footerSeparator: true,
         visibility: true
     };
 
-    constructor(props) {
+    constructor(props: IProps) {
         super(props);
         this.state = {visibility: props.visibility || true};
     }
 
-    componentWillReceiveProps(nextProps) {
+    componentWillReceiveProps(nextProps: IProps) {
         // You don't have to do this check first, but it can help prevent an unneeded render
         if (nextProps.visibility !== this.state.visibility) {
-        this.setState({ visibility: nextProps.visibility });
+            this.setState({ visibility: nextProps.visibility });
         }
     }
 
@@ -38,11 +50,10 @@ export class Modal extends React.Component {
                             }}>&times;</span>
                         {titleNode}
                     </div>
-                    <div className="modal-body" style={this.props.bodyStyle}>
+                    <div className="modal-body">
                         {this.props.children}
                     </div>
-                    <div className={(footerSeparator) ? "modal-footer line" : "modal-footer"}
-                    >
+                    <div className={(footerSeparator) ? "modal-footer line" : "modal-footer"}>
                         {footer}
                     </div>
                 </div>
@@ -50,3 +61,5 @@ export class Modal extends React.Component {
     }
 
 }
+
+export default Modal;
