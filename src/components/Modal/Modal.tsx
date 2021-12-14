@@ -3,11 +3,13 @@ import React from 'react';
 import './Modal.css';
 
 type IProps = {
+    title: string | JSX.Element
+    footer?: JSX.Element,
     headerSeparator: boolean,
     footerSeparator: boolean,
     visibility: boolean,
-    footer: JSX.Element,
-    title: string
+    
+    
 }
 
 type IState = {
