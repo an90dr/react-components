@@ -16,7 +16,7 @@ stories.add('ModalDefaultRender', () => {
 
 stories.add('Modal with Header', () => {
     return (<Modal           
-        title={"Modal with Header"}
+        title={'Modal with Header'}
         headerSeparator={true}
         visibility={true}>
             Modal with Header
@@ -26,7 +26,7 @@ stories.add('Modal with Header', () => {
 
 stories.add('Modal with Footer', () => {
     return (<Modal           
-        title={"Modal with Footer"}
+        title={'Modal with Footer'}
         footer={<div><button>OK</button><button>Cancel</button></div>}
         headerSeparator={true}
         footerSeparator={true}
