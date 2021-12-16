@@ -40,6 +40,7 @@ stories.add('Modal with Footer', () => {
   );
 });
 
+//Not Closable Modal
 stories.add('Not Closable Modal', () => {
   return (
     <Modal
