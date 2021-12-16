@@ -1,7 +1,9 @@
 import React from 'react';
+import { valueEmpty } from '../../utils/Utils';
 import './Modal.css';
 
 type IProps = {
+  className: string;
   closable: boolean;
   footer?: JSX.Element;
   footerSeparator: boolean;
@@ -16,6 +18,7 @@ type IState = {
 
 class Modal extends React.Component<IProps, IState> {
   static defaultProps = {
+    className: '',
     closable: true,
     footerSeparator: true,
     headerSeparator: true,
@@ -35,13 +38,13 @@ class Modal extends React.Component<IProps, IState> {
   }
 
   render() {
-    const { footer, headerSeparator, footerSeparator, visibility } = this.props;
-    const { visibility: stateVisibility } = this.state;
+    const { footer, headerSeparator, footerSeparator } = this.props;
 
     const titleNode = this._resolveTitle();
+    const containerClassName = this._resolveContainerClassName();
 
     return (
-      <div className={stateVisibility ? 'modal' : 'modal hidden'}>
+      <div className={containerClassName}>
         <div className='modal-content'>
           <div
             className={headerSeparator ? 'modal-header line' : 'modal-header'}
@@ -59,6 +62,16 @@ class Modal extends React.Component<IProps, IState> {
       </div>
     );
   }
+  private _resolveContainerClassName() {
+    let containerClass = this.state.visibility ? 'modal' : 'modal hidden';
+
+    containerClass += !valueEmpty(this.props.className)
+      ? ' ' + this.props.className
+      : '';
+
+    return containerClass;
+  }
+
   private _resolveTitle() {
     return this.props.title != null ? <h2>{this.props.title}</h2> : null;
   }

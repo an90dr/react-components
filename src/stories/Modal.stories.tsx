@@ -54,3 +54,19 @@ stories.add('Not Closable Modal', () => {
     </Modal>
   );
 });
+
+//Custom class name for container
+stories.add('Custom Class Name for Container', () => {
+  return (
+    <Modal
+      title={'Custom class name for Container'}
+      headerSeparator={true}
+      footerSeparator={true}
+      visibility={true}
+      closable={false}
+      className='customClassName'
+    >
+      Custom class name for Container
+    </Modal>
+  );
+});
