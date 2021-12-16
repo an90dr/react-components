@@ -2,10 +2,11 @@ import React from 'react';
 import './Modal.css';
 
 type IProps = {
-  title: string | JSX.Element;
+  closable: boolean;
   footer?: JSX.Element;
-  headerSeparator: boolean;
   footerSeparator: boolean;
+  headerSeparator: boolean;
+  title: string | JSX.Element;
   visibility: boolean;
 };
 
@@ -15,8 +16,9 @@ type IState = {
 
 class Modal extends React.Component<IProps, IState> {
   static defaultProps = {
-    headerSeparator: true,
+    closable: true,
     footerSeparator: true,
+    headerSeparator: true,
     visibility: true,
   };
 
@@ -36,8 +38,7 @@ class Modal extends React.Component<IProps, IState> {
     const { footer, headerSeparator, footerSeparator, visibility } = this.props;
     const { visibility: stateVisibility } = this.state;
 
-    const titleNode =
-      this.props.title != null ? <h2>{this.props.title}</h2> : null;
+    const titleNode = this._resolveTitle();
 
     return (
       <div className={stateVisibility ? 'modal' : 'modal hidden'}>
@@ -45,14 +46,7 @@ class Modal extends React.Component<IProps, IState> {
           <div
             className={headerSeparator ? 'modal-header line' : 'modal-header'}
           >
-            <span
-              className='close'
-              onClick={(e) => {
-                this.setState({ visibility: false });
-              }}
-            >
-              &times;
-            </span>
+            {this._resolveCloseIcon()}
             {titleNode}
           </div>
           <div className='modal-body'>{this.props.children}</div>
@@ -63,6 +57,26 @@ class Modal extends React.Component<IProps, IState> {
           </div>
         </div>
       </div>
+    );
+  }
+  private _resolveTitle() {
+    return this.props.title != null ? <h2>{this.props.title}</h2> : null;
+  }
+
+  private _resolveCloseIcon() {
+    if (!this.props.closable) {
+      return null;
+    }
+
+    return (
+      <span
+        className='close'
+        onClick={(e) => {
+          this.setState({ visibility: false });
+        }}
+      >
+        &times;
+      </span>
     );
   }
 }
