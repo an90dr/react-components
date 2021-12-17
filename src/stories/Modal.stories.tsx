@@ -61,12 +61,25 @@ stories.add('Custom Class Name for Container', () => {
     <Modal
       title={'Custom class name for Container'}
       headerSeparator={true}
-      footerSeparator={true}
       visibility={true}
       closable={false}
       className='customClassName'
     >
       Custom class name for Container
+    </Modal>
+  );
+});
+
+stories.add('Custom close icon', () => {
+  return (
+    <Modal
+      title={'Custom close icon'}
+      headerSeparator={true}
+      visibility={true}
+      closable={true}
+      closeIcon={<div>Close Icon</div>}
+    >
+      Custom close icon
     </Modal>
   );
 });

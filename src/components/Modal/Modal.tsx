@@ -5,6 +5,7 @@ import './Modal.css';
 type IProps = {
   className: string;
   closable: boolean;
+  closeIcon?: JSX.Element;
   footer?: JSX.Element;
   footerSeparator: boolean;
   headerSeparator: boolean;
@@ -20,10 +21,12 @@ class Modal extends React.Component<IProps, IState> {
   static defaultProps = {
     className: '',
     closable: true,
-    footerSeparator: true,
+    footerSeparator: false,
     headerSeparator: true,
     visibility: true,
   };
+
+  defaultCloseIcon = (<div>&times;</div>);
 
   constructor(props: IProps) {
     super(props);
@@ -62,6 +65,7 @@ class Modal extends React.Component<IProps, IState> {
       </div>
     );
   }
+
   private _resolveContainerClassName() {
     let containerClass = this.state.visibility ? 'modal' : 'modal hidden';
 
@@ -73,7 +77,7 @@ class Modal extends React.Component<IProps, IState> {
   }
 
   private _resolveTitle() {
-    return this.props.title != null ? <h2>{this.props.title}</h2> : null;
+    return !valueEmpty(this.props.title) ? <h2>{this.props.title}</h2> : null;
   }
 
   private _resolveCloseIcon() {
@@ -88,7 +92,7 @@ class Modal extends React.Component<IProps, IState> {
           this.setState({ visibility: false });
         }}
       >
-        &times;
+        {this.props.closeIcon || this.defaultCloseIcon}
       </span>
     );
   }
