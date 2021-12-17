@@ -7,9 +7,9 @@ type IProps = {
   closable: boolean;
   closeIcon?: JSX.Element;
   footer?: JSX.Element;
-  footerSeparator: boolean;
-  headerSeparator: boolean;
-  title: string | JSX.Element;
+  footerSeparator?: boolean;
+  titleSeparator?: boolean;
+  title?: string | JSX.Element;
   visibility: boolean;
 };
 
@@ -22,7 +22,7 @@ class Modal extends React.Component<IProps, IState> {
     className: '',
     closable: true,
     footerSeparator: false,
-    headerSeparator: true,
+    titleSeparator: false,
     visibility: true,
   };
 
@@ -41,7 +41,7 @@ class Modal extends React.Component<IProps, IState> {
   }
 
   render() {
-    const { footer, headerSeparator, footerSeparator } = this.props;
+    const { footer, titleSeparator, footerSeparator } = this.props;
 
     const titleNode = this._resolveTitle();
     const containerClassName = this._resolveContainerClassName();
@@ -50,7 +50,7 @@ class Modal extends React.Component<IProps, IState> {
       <div className={containerClassName}>
         <div className='modal-content'>
           <div
-            className={headerSeparator ? 'modal-header line' : 'modal-header'}
+            className={titleSeparator ? 'modal-header line' : 'modal-header'}
           >
             {this._resolveCloseIcon()}
             {titleNode}

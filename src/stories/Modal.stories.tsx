@@ -6,16 +6,12 @@ import Modal from '../components/Modal';
 const stories = storiesOf('App Test', module);
 
 stories.add('ModalDefaultRender', () => {
-  return (
-    <Modal title='Modal Default Render' visibility={true}>
-      Default Modal Render
-    </Modal>
-  );
+  return <Modal visibility={true}>Default Modal Render</Modal>;
 });
 
-stories.add('Modal with Header', () => {
+stories.add('Modal with Title', () => {
   return (
-    <Modal title={'Modal with Header'} headerSeparator={true} visibility={true}>
+    <Modal title={'Modal with Title'} titleSeparator={true} visibility={true}>
       Modal with Header
     </Modal>
   );
@@ -31,7 +27,7 @@ stories.add('Modal with Footer', () => {
           <button>Cancel</button>
         </div>
       }
-      headerSeparator={true}
+      titleSeparator={true}
       footerSeparator={true}
       visibility={true}
     >
@@ -45,8 +41,7 @@ stories.add('Not Closable Modal', () => {
   return (
     <Modal
       title={'Not closable Modal'}
-      headerSeparator={true}
-      footerSeparator={true}
+      titleSeparator={true}
       visibility={true}
       closable={false}
     >
@@ -60,7 +55,7 @@ stories.add('Custom Class Name for Container', () => {
   return (
     <Modal
       title={'Custom class name for Container'}
-      headerSeparator={true}
+      titleSeparator={true}
       visibility={true}
       closable={false}
       className='customClassName'
@@ -74,7 +69,7 @@ stories.add('Custom close icon', () => {
   return (
     <Modal
       title={'Custom close icon'}
-      headerSeparator={true}
+      titleSeparator={true}
       visibility={true}
       closable={true}
       closeIcon={<div>Close Icon</div>}
