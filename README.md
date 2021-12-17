@@ -1,15 +1,18 @@
 <h3 align=center style="padding-bottom:10px;border-bottom: 1px solid;">✔React components created for public use for free✔</h3>
 
 # ✨ Features
-- [ x ] 📦 Modal Component
-- [ ]   🔍 👨🏻‍💻 👨🏻‍💻 ... More Components will be added soon ...
+
+✅📦 Modal Component\
+💬 Working to add more components 👨🏻‍💻 👨🏻‍💻 ◽◽◽
 
 # 🤘 How to Use
+
 ## Install to your project from NPM:
 
 ```
 npm install react-components-free
 ```
+
 ## Import to your React Component:
 
 ```
