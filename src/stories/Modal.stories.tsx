@@ -1,23 +1,51 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
+//import { storiesOf } from '@storybook/react';
 
 import Modal from '../components/Modal';
 
-const stories = storiesOf('App Test', module);
+export default {
+  title: 'Modal',
+  component: Modal,
+  parameters: {
+    backgrounds: {
+      values: [
+        { name: 'red', value: '#f00' },
+        { name: 'green', value: '#0f0' },
+        { name: 'blue', value: '#00f' },
+      ],
+    },
+    decorators: [
+      (Story: any) => (
+        <div style={{ margin: '3em' }}>
+          <Story />
+        </div>
+      ),
+    ],
+  }
+};
 
-stories.add('ModalDefaultRender', () => {
-  return <Modal visibility={true}>Default Modal Render</Modal>;
+
+//DefaultModal.storyName = 'Default Modal Rendering';
+//export const DefaultModal = () => <Modal visibility={true}>Modal</Modal>;
+
+export const WithTitle = () => <Modal visibility={true}>Modal With Title</Modal>;
+
+export const WithFooter = () => <Modal visibility={true}>Modal With Fotoer</Modal>;
+/*const stories = storiesOf('Modal', module);
+
+stories.add('Default', () => {
+  return <Modal visibility={false}>Default Modal Render</Modal>;
 });
 
-stories.add('Modal with Title', () => {
+stories.add('With Title', () => {
   return (
-    <Modal title={'Modal with Title'} titleSeparator={true} visibility={true}>
+    <Modal title={'Modal with Title'} titleSeparator={true} visibility={false}>
       Modal with Header
     </Modal>
   );
 });
 
-stories.add('Modal with Footer', () => {
+stories.add('With Footer', () => {
   return (
     <Modal
       title={'Modal with Footer'}
@@ -29,7 +57,7 @@ stories.add('Modal with Footer', () => {
       }
       titleSeparator={true}
       footerSeparator={true}
-      visibility={true}
+      visibility={false}
     >
       Modal with Footer
     </Modal>
@@ -37,12 +65,12 @@ stories.add('Modal with Footer', () => {
 });
 
 //Not Closable Modal
-stories.add('Not Closable Modal', () => {
+stories.add('Not Closable', () => {
   return (
     <Modal
       title={'Not closable Modal'}
       titleSeparator={true}
-      visibility={true}
+      visibility={false}
       closable={false}
     >
       Not Closable Modal
@@ -51,12 +79,12 @@ stories.add('Not Closable Modal', () => {
 });
 
 //Custom class name for container
-stories.add('Custom Class Name for Container', () => {
+stories.add('Custom container class name', () => {
   return (
     <Modal
       title={'Custom class name for Container'}
       titleSeparator={true}
-      visibility={true}
+      visibility={false}
       closable={false}
       className='customClassName'
     >
@@ -70,11 +98,11 @@ stories.add('Custom close icon', () => {
     <Modal
       title={'Custom close icon'}
       titleSeparator={true}
-      visibility={true}
+      visibility={false}
       closable={true}
       closeIcon={<div>Close Icon</div>}
     >
       Custom close icon
     </Modal>
   );
-});
+});*/
