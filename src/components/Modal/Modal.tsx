@@ -6,6 +6,7 @@ type IProps = {
   className: string;
   closable: boolean;
   closeIcon?: JSX.Element;
+  onClose?: { (): void };
   footer?: JSX.Element;
   footerSeparator?: boolean;
   titleSeparator?: boolean;
@@ -33,7 +34,9 @@ class Modal extends React.Component<IProps, IState> {
 
   constructor(props: IProps) {
     super(props);
-    this.state = { visibility: valueEmpty(props.visibility)? true : props.visibility };
+    this.state = {
+      visibility: valueEmpty(props.visibility) ? true : props.visibility,
+    };
   }
 
   componentWillReceiveProps(nextProps: IProps) {
@@ -91,7 +94,8 @@ class Modal extends React.Component<IProps, IState> {
     return (
       <span
         className='close'
-        onClick={(e) => {
+        onClick={(e: any) => {
+          this.props.onClose && this.props.onClose();
           this.setState({ visibility: false });
         }}
       >

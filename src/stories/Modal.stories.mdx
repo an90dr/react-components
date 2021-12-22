@@ -1,17 +1,92 @@
 import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
 
+import VisibilityToggler from '../components/VisibilityToggler';
 import Modal from '../components/Modal';
 import Button from '../components/Button';
 
-<Meta title="MDX/Modal" component={Modal} />
+<Meta
+  title='MDX/Modal'
+  argTypes={{ onClick: { action: 'clicked' } }}
+  component={Modal}
+/>
 
 # Modal
 
-### Button primary
+### Modal Default
 
-<Story name="primary">
-  <Button label="abc"></Button>
+<Story name='modalDefault'>
+  <VisibilityToggler modalProperties={{ visibility: false }} />
 </Story>
 
-# Button Component API
-<ArgsTable of={Button} />
+### Modal With title
+
+<Story name='modalWithTitle'>
+  <VisibilityToggler
+    modalProperties={{ visibility: false, title: 'Modal with title' }}
+  />
+</Story>
+
+### Modal With Footer
+
+<Story name='modalWithFooter'>
+  <VisibilityToggler
+    modalProperties={{
+      visibility: false,
+      title: 'Modal with Footer',
+      footer: (
+        <div>
+          <button>OK</button>
+          <button>Cancel</button>
+        </div>
+      ),
+      titleSeparator: true,
+      footerSeparator: true,
+    }}
+  />
+</Story>
+
+### Not Closable Modal
+
+<Story name='notClosableModal'>
+  <VisibilityToggler
+    modalProperties={{
+      visibility: false,
+      title: 'Not Closable Modal',
+      titleSeparator: true,
+      footerSeparator: true,
+      closable: false,
+    }}
+  />
+</Story>
+
+### Custom container class name
+
+<Story name='customContainerClassName'>
+  <VisibilityToggler
+    modalProperties={{
+      visibility: false,
+      title: 'Custom Container Class Name Modal',
+      titleSeparator: true,
+      footerSeparator: true,
+      className: 'customClassName',
+    }}
+  />
+</Story>
+
+### Custom close icon
+
+<Story name='customCloseIcon'>
+  <VisibilityToggler
+    modalProperties={{
+      visibility: false,
+      title: 'Custom Close Icon Modal',
+      titleSeparator: true,
+      footerSeparator: true,
+      closeIcon: <div>Close Icon</div>,
+    }}
+  />
+</Story>
+
+### Modal Component API
+
+<ArgsTable of={Modal} />

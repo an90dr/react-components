@@ -3,25 +3,32 @@ import { valueEmpty } from '../../utils/Utils';
 import './Button.css';
 
 type IProps = {
-    label: string
+  label: string;
+  onClick?(event: MouseEvent): void;
 };
 
-
-type IState = {
-}
+type IState = {};
 
 class Button extends React.Component<IProps, IState> {
-    static defaultProps = {
-        label: ''
-      };
+  static defaultProps = {
+    label: '',
+  };
 
-      constructor(props: IProps) {
-        super(props);
-      }
+  constructor(props: IProps) {
+    super(props);
+  }
 
-      render() {
-          return (<button>{this.props.label}</button>);
-      }
+  render() {
+    return (
+      <button
+        onClick={(event: any) => {
+          this.props.onClick && this.props.onClick(event);
+        }}
+      >
+        {this.props.label}
+      </button>
+    );
+  }
 }
 
 export default Button;
