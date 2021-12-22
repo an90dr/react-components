@@ -8,6 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
+    "storybook-docs": "start-storybook --docs --no-manager-cache",
     "build-lib": "rollup -c"
   },
   "author": "Andreas Hadjithoma",
@@ -21,7 +22,8 @@
     "@rollup/plugin-node-resolve": "^13.0.6",
     "@rollup/plugin-typescript": "^8.3.0",
     "@storybook/addon-actions": "^6.3.12",
-    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-docs": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
     "@storybook/addon-links": "^6.3.12",
     "@storybook/react": "^6.3.12",
     "@typescript-eslint/eslint-plugin": "^5.7.0",

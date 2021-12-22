@@ -21,8 +21,11 @@ class Modal extends React.Component<IProps, IState> {
   static defaultProps = {
     className: '',
     closable: true,
+    closeIcon: null,
+    footer: null,
     footerSeparator: false,
     titleSeparator: false,
+    title: '',
     visibility: true,
   };
 
@@ -30,7 +33,7 @@ class Modal extends React.Component<IProps, IState> {
 
   constructor(props: IProps) {
     super(props);
-    this.state = { visibility: props.visibility || true };
+    this.state = { visibility: valueEmpty(props.visibility)? true : props.visibility };
   }
 
   componentWillReceiveProps(nextProps: IProps) {
