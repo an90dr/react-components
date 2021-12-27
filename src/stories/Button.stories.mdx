@@ -9,8 +9,25 @@ import Button from '../components/Button';
 ### Button primary
 
 <Story name="primary">
-  <Button label="abc"></Button>
+  <Button label="Primary Button" buttonType="primary"></Button>
+  
+  <code>
+    <Button label="Primary Button" buttonType="primary"></Button>
+  </code>
 </Story>
+
+### Button secondary
+
+<Story name="secondary">
+  <Button label="Secondary Button" buttonType="secondary"></Button>
+</Story>
+
+### Button on Click
+
+<Story name="onClick Event">
+  <Button label="Secondary Button" onClick={()=>{ alert('Button Clicked')}}></Button>
+</Story>
+
 
 # Button Component API
 <ArgsTable of={Button} />
