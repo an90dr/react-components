@@ -14,7 +14,6 @@ type IProps = {
 type IState = {};
 
 class Button extends React.Component<IProps, IState> {
-
   defaultButtonClass = 'button';
 
   static defaultProps = {
@@ -29,7 +28,7 @@ class Button extends React.Component<IProps, IState> {
   render() {
     return (
       <button
-        className={this.defaultButtonClass +  ' ' + this._resolveClassName()}
+        className={this.defaultButtonClass + ' ' + this._resolveClassName()}
         onClick={(event: any) => {
           this.props.onClick && this.props.onClick(event);
         }}

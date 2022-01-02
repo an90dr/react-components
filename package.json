@@ -6,8 +6,8 @@
   "module": "./dist/index.es.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "storybook-start": "start-storybook -p 6006",
+    "storybook-build": "build-storybook",
     "storybook-docs": "start-storybook --docs --no-manager-cache",
     "build-lib": "rollup -c"
   },

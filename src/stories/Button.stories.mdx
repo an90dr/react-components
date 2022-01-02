@@ -1,16 +1,33 @@
 import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
-
+import pkg from '../../package.json';
 import Button from '../components/Button';
 
-<Meta title='MDX/Button' component={Button} />
+<Meta
+  title={'Button - v.' + pkg.version}
+  component={Button}
+  argTypes={{
+    label: { control: 'text' },
+    buttonType: {
+      control: { type: 'select', options: ['primary', 'secondary', 'link'] },
+    },
+  }}
+/>
+
+export const Template = (args) => (
+  <Button buttonType={'primary'} label={'Primary Button'} {...args}></Button>
+);
 
 # Button
 
 ### Button primary
 
-<Story name='primary'>
-  <Button label='Primary Button' buttonType='primary'></Button>
-</Story>
+export const Primary = Template.bind({});
+Primary.args = {
+  buttonType: 'primary',
+  label: 'Primary Button',
+};
+
+<Story name='primary'>{Primary}</Story>
 
 ```jsx
 <Button label='Primary Button' buttonType='primary'></Button>
@@ -18,9 +35,13 @@ import Button from '../components/Button';
 
 ### Button secondary
 
-<Story name='secondary'>
-  <Button label='Secondary Button' buttonType='secondary'></Button>
-</Story>
+export const Secondary = Template.bind({});
+Secondary.args = {
+  buttonType: 'secondary',
+  label: 'Secondary Button',
+};
+
+<Story name='secondary'>{Secondary}</Story>
 
 ```jsx
 <Button label='Secondary Button' buttonType='secondary'></Button>
@@ -28,9 +49,15 @@ import Button from '../components/Button';
 
 ### Button on Click
 
-<Story name='onClick Event' argTypes={{ onClick: { action: 'clicked' } }}>
-  {(argTypes) => <Button label='Secondary Button' {...argTypes}></Button>}
-</Story>
+export const ButtonOnClick = Template.bind({});
+ButtonOnClick.args = {
+  label: 'Button on click',
+};
+ButtonOnClick.argTypes = {
+  onClick: { action: 'clicked' },
+};
+
+<Story name='onClick Event'>{ButtonOnClick}</Story>
 
 ```jsx
 <Button
