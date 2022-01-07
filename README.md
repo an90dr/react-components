@@ -3,6 +3,7 @@
 # ✨ Features
 
 ✅📦 Modal Component\
+✅📦 Button Component\
 💬 Working to add more components 👨🏻‍💻 👨🏻‍💻 ◽◽◽
 
 # 🤘 How to Use

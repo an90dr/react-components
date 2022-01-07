@@ -3,31 +3,48 @@ import { valueEmpty } from '../../utils/Utils';
 import './Button.css';
 import { types } from '../../interface/ButtonTypes';
 
-type buttonType = 'primary' | 'secondary' | 'link';
+export type buttonType = 'primary' | 'secondary' | 'link';
 
-type IProps = {
+export type NativeButtonProps = Omit<
+  React.ButtonHTMLAttributes<any>,
+  'type' | 'onClick'
+>;
+export type BaseButtonProps = {
+  /**
+   * The type of the Button
+   */
   buttonType: buttonType;
+  /**
+   * The label of the button
+   */
   label: string;
+  /**
+   * callback when button clicked
+   * @param event
+   */
   onClick?(event: MouseEvent): void;
 };
 
-type IState = {};
+export type ButtonProps = NativeButtonProps & BaseButtonProps;
 
-class Button extends React.Component<IProps, IState> {
-  defaultButtonClass = 'button';
+type ButtonState = {};
+
+class Button extends React.Component<ButtonProps, ButtonState> {
+  defaultButtonClass = 'rcf-button';
 
   static defaultProps = {
     type: types.primary,
     label: '',
   };
 
-  constructor(props: IProps) {
+  constructor(props: ButtonProps) {
     super(props);
   }
 
   render() {
     return (
       <button
+        {...this.props}
         className={this.defaultButtonClass + ' ' + this._resolveClassName()}
         onClick={(event: any) => {
           this.props.onClick && this.props.onClick(event);

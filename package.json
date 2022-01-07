@@ -1,6 +1,7 @@
 {
   "name": "react-components-free",
-  "version": "1.0.10",
+  "homepage": "http://react-components-free.whoopcy.com/docs/",
+  "version": "1.0.12",
   "description": "react components for free",
   "main": "./dist/index.js",
   "module": "./dist/index.es.js",

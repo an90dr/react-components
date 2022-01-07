@@ -3,7 +3,7 @@ import pkg from '../../package.json';
 import Button from '../components/Button';
 
 <Meta
-  title={'Button - v.' + pkg.version}
+  title={'React Components Free v.' + pkg.version + '/Button'}
   component={Button}
   argTypes={{
     label: { control: 'text' },
@@ -27,7 +27,7 @@ Primary.args = {
   label: 'Primary Button',
 };
 
-<Story name='primary'>{Primary}</Story>
+<Story name='Primary'>{Primary}</Story>
 
 ```jsx
 <Button label='Primary Button' buttonType='primary'></Button>
@@ -41,10 +41,48 @@ Secondary.args = {
   label: 'Secondary Button',
 };
 
-<Story name='secondary'>{Secondary}</Story>
+<Story name='Secondary'>{Secondary}</Story>
 
 ```jsx
 <Button label='Secondary Button' buttonType='secondary'></Button>
+```
+
+### Button link
+
+export const Link = Template.bind({});
+Link.args = {
+  buttonType: 'link',
+  label: 'Link Button',
+};
+
+<Story name='Link'>{Link}</Story>
+
+```jsx
+<Button label='Link Button' buttonType='link'></Button>
+```
+
+### Button Disabled
+
+export const ButtonDisabled = Template.bind({});
+ButtonDisabled.args = {
+  label: 'Button Disabled',
+  disabled: true,
+};
+
+export const LinkDisabled = Template.bind({});
+LinkDisabled.args = {
+  label: 'Link Disabled',
+  buttonType: 'link',
+  disabled: true,
+};
+
+<Story name='Disabled'>{ButtonDisabled}</Story>
+
+<Story name='Link Disabled'>{LinkDisabled}</Story>
+
+```jsx
+<Button label='Button Disabled' disabled={true}></Button>
+<Button label={'Link Disabled'} buttonType={'link'} disabled={true}></Button>
 ```
 
 ### Button on Click
