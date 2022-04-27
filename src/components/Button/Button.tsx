@@ -1,31 +1,19 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import { valueEmpty } from '../../utils/Utils';
 import './Button.css';
 import { types } from '../../interface/ButtonTypes';
 
-export type buttonType = 'primary' | 'secondary' | 'link';
+export type buttonType = types.primary | types.secondary | types.link;
 
-export type NativeButtonProps = Omit<
-  React.ButtonHTMLAttributes<any>,
-  'type' | 'onClick'
->;
 export type BaseButtonProps = {
+  HTMLProps?: ButtonHTMLAttributes<HTMLButtonElement>
   /**
    * The type of the Button
    */
-  buttonType: buttonType;
-  /**
-   * The label of the button
-   */
-  label: string;
-  /**
-   * callback when button clicked
-   * @param event
-   */
-  onClick?(event: MouseEvent): void;
+  buttontype: buttonType
 };
 
-export type ButtonProps = NativeButtonProps & BaseButtonProps;
+export type ButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLButtonElement>;
 
 type ButtonState = {};
 
@@ -33,30 +21,44 @@ class Button extends React.Component<ButtonProps, ButtonState> {
   defaultButtonClass = 'rcf-button';
 
   static defaultProps = {
-    type: types.primary,
-    label: '',
+    buttontype: types.primary
   };
 
-  constructor(props: ButtonProps) {
-    super(props);
-  }
-
   render() {
+
+    let htmlPropsResolved = this._resolvePropsToHTMLProps();
+
     return (
-      <button
-        {...this.props}
-        className={this.defaultButtonClass + ' ' + this._resolveClassName()}
-        onClick={(event: any) => {
-          this.props.onClick && this.props.onClick(event);
-        }}
-      >
-        {this.props.label}
+      <button {...htmlPropsResolved}>
+        {this.props.children}
       </button>
     );
   }
 
+  /**
+   * Get all properties passed to the component and recalculates the
+   * HTML Button Properties based on the props.
+   * 
+   * All properties passed to HTMLProps will be overriden by 
+   * 
+   * @returns  ButtonHTMLAttributes<HTMLButtonElement>
+   */
+  _resolvePropsToHTMLProps(): ButtonHTMLAttributes<HTMLButtonElement>{
+    let buttonHTMLProps = this.props.HTMLProps || {};
+
+    //Setting Default Values
+    buttonHTMLProps.className = (' ' + this.defaultButtonClass).trim();
+
+    if(this.props.buttontype){
+      buttonHTMLProps.className += ' ' + this._resolveClassName();
+      buttonHTMLProps.className.trim();
+    }
+
+    return buttonHTMLProps;
+  }
+
   _resolveClassName(): buttonType {
-    switch (this.props.buttonType) {
+    switch (this.props.buttontype) {
       case types.primary:
         return types.primary;
       case types.secondary:

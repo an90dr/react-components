@@ -1,108 +1,114 @@
-import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
-import pkg from '../../package.json';
-import Button from '../components/Button';
+import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
+import pkg from "../../package.json";
+import Button from "../components/Button";
 
 <Meta
-  title={'React Components Free v.' + pkg.version + '/Button'}
+  title={"React Components Free v." + pkg.version + "/Button"}
   component={Button}
   argTypes={{
-    label: { control: 'text' },
-    buttonType: {
-      control: { type: 'select', options: ['primary', 'secondary', 'link'] },
-    },
+    HTMLProps: { control: {type: "object"}},
+    buttontype: {
+      control: { type: "radio" },
+       options: ['primary', 'secondary', 'link']
+    }
   }}
 />
 
 export const Template = (args) => (
-  <Button buttonType={'primary'} label={'Primary Button'} {...args}></Button>
+  // buttontype={'primary'} label={'Primary Button'} {...args}
+  <Button buttontype={'primary'}>Button</Button>
 );
 
 # Button
 
 ### Button primary
-
 export const Primary = Template.bind({});
 Primary.args = {
-  buttonType: 'primary',
-  label: 'Primary Button',
+  buttontype: 'primary'
 };
 
-<Story name='Primary'>{Primary}</Story>
+<Story name='Primary'>
+  {Primary}
+</Story>
 
 ```jsx
-<Button label='Primary Button' buttonType='primary'></Button>
+<Button buttontype="primary">Primary Button</Button>
 ```
 
 ### Button secondary
 
-export const Secondary = Template.bind({});
-Secondary.args = {
-  buttonType: 'secondary',
-  label: 'Secondary Button',
-};
-
-<Story name='Secondary'>{Secondary}</Story>
+<Story name="Secondary">
+  <Button buttontype="secondary">Secondary Button</Button>
+</Story>
 
 ```jsx
-<Button label='Secondary Button' buttonType='secondary'></Button>
+<Button buttontype="secondary">Secondary Button</Button>
 ```
 
 ### Button link
 
-export const Link = Template.bind({});
-Link.args = {
-  buttonType: 'link',
-  label: 'Link Button',
-};
-
-<Story name='Link'>{Link}</Story>
+<Story name="Link">
+  <Button buttontype="link">Link Button</Button>
+</Story>
 
 ```jsx
-<Button label='Link Button' buttonType='link'></Button>
+<Button buttontype="link">Link Button</Button>
 ```
 
 ### Button Disabled
 
 export const ButtonDisabled = Template.bind({});
 ButtonDisabled.args = {
-  label: 'Button Disabled',
+  label: "Button Disabled",
   disabled: true,
 };
 
 export const LinkDisabled = Template.bind({});
 LinkDisabled.args = {
-  label: 'Link Disabled',
-  buttonType: 'link',
+  label: "Link Disabled",
+  buttontype: "link",
   disabled: true,
 };
 
-<Story name='Disabled'>{ButtonDisabled}</Story>
+<Story name="Disabled">
+  <Button HTMLProps={{disabled:'disabled'}}>Button Disabled</Button>
+</Story>
 
-<Story name='Link Disabled'>{LinkDisabled}</Story>
+<Story name="Link Disabled">
+  <Button buttontype='link' HTMLProps={{disabled:'disabled'}}>Link Disabled</Button>
+</Story>
 
 ```jsx
-<Button label='Button Disabled' disabled={true}></Button>
-<Button label={'Link Disabled'} buttonType={'link'} disabled={true}></Button>
+<Button HTMLProps={{disabled:'disabled'}}>Button Disabled</Button>
+<Button buttontype='link' HTMLProps={{disabled:'disabled'}}>Link Disabled</Button>
 ```
 
 ### Button on Click
 
-export const ButtonOnClick = Template.bind({});
+<Story name="onClick Event">
+  <Button HTMLProps={{onClick:(event)=>{console.log('Button Clicked')}}}>Button Click</Button>
+  <p>Check console</p>
+</Story>
+
+<!--export const ButtonOnClick = Template.bind({});
 ButtonOnClick.args = {
   label: 'Button on click',
 };
 ButtonOnClick.argTypes = {
-  onClick: { action: 'clicked' },
+  HTMLProps: {onClick: { action: 'clicked' }},
 };
 
-<Story name='onClick Event'>{ButtonOnClick}</Story>
+<Story name='onClick Event1'>{ButtonOnClick}</Story>
+-->
 
 ```jsx
 <Button
-  label='Secondary Button'
-  onClick={(event: any) => {
-    console.log(event);
-  }}
+  label="Secondary Button"
+  HTMLProps={
+    onClick={(event: any) => {
+      console.log(event);
+    }}
+  }
 ></Button>
 ```
 
