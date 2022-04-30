@@ -1,16 +1,16 @@
-import { Canvas, Meta, Story, ArgsTable } from "@storybook/addon-docs";
-import pkg from "../../package.json";
-import Button from "../components/Button";
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import pkg from '../../package.json';
+import Button from '../components/Button';
 
 <Meta
-  title={"React Components Free v." + pkg.version + "/Button"}
+  title={'React Components Free v.' + pkg.version + '/Button'}
   component={Button}
   argTypes={{
-    HTMLProps: { control: {type: "object"}},
+    HTMLProps: { control: { type: 'object' } },
     buttontype: {
-      control: { type: "radio" },
-       options: ['primary', 'secondary', 'link']
-    }
+      control: { type: 'radio' },
+      options: ['primary', 'secondary', 'link'],
+    },
   }}
 />
 
@@ -22,60 +22,61 @@ export const Template = (args) => (
 # Button
 
 ### Button primary
+
 export const Primary = Template.bind({});
 Primary.args = {
-  buttontype: 'primary'
+  buttontype: 'primary',
 };
 
-<Story name='Primary'>
-  {Primary}
-</Story>
+<Story name='Primary'>{Primary}</Story>
 
 ```jsx
-<Button buttontype="primary">Primary Button</Button>
+<Button buttontype='primary'>Primary Button</Button>
 ```
 
 ### Button secondary
 
-<Story name="Secondary">
-  <Button buttontype="secondary">Secondary Button</Button>
+<Story name='Secondary'>
+  <Button buttontype='secondary'>Secondary Button</Button>
 </Story>
 
 ```jsx
-<Button buttontype="secondary">Secondary Button</Button>
+<Button buttontype='secondary'>Secondary Button</Button>
 ```
 
 ### Button link
 
-<Story name="Link">
-  <Button buttontype="link">Link Button</Button>
+<Story name='Link'>
+  <Button buttontype='link'>Link Button</Button>
 </Story>
 
 ```jsx
-<Button buttontype="link">Link Button</Button>
+<Button buttontype='link'>Link Button</Button>
 ```
 
 ### Button Disabled
 
 export const ButtonDisabled = Template.bind({});
 ButtonDisabled.args = {
-  label: "Button Disabled",
+  label: 'Button Disabled',
   disabled: true,
 };
 
 export const LinkDisabled = Template.bind({});
 LinkDisabled.args = {
-  label: "Link Disabled",
-  buttontype: "link",
+  label: 'Link Disabled',
+  buttontype: 'link',
   disabled: true,
 };
 
-<Story name="Disabled">
-  <Button HTMLProps={{disabled:'disabled'}}>Button Disabled</Button>
+<Story name='Disabled'>
+  <Button HTMLProps={{ disabled: 'disabled' }}>Button Disabled</Button>
 </Story>
 
-<Story name="Link Disabled">
-  <Button buttontype='link' HTMLProps={{disabled:'disabled'}}>Link Disabled</Button>
+<Story name='Link Disabled'>
+  <Button buttontype='link' HTMLProps={{ disabled: 'disabled' }}>
+    Link Disabled
+  </Button>
 </Story>
 
 ```jsx
@@ -85,8 +86,16 @@ LinkDisabled.args = {
 
 ### Button on Click
 
-<Story name="onClick Event">
-  <Button HTMLProps={{onClick:(event)=>{console.log('Button Clicked')}}}>Button Click</Button>
+<Story name='onClick Event'>
+  <Button
+    HTMLProps={{
+      onClick: (event) => {
+        console.log('Button Clicked');
+      },
+    }}
+  >
+    Button Click
+  </Button>
   <p>Check console</p>
 </Story>
 
@@ -111,6 +120,12 @@ ButtonOnClick.argTypes = {
   }
 ></Button>
 ```
+
+### Button Small
+
+<Story name='small'>
+  <Button size={'small'}>Button Small</Button>
+</Story>
 
 # Button Component API
 

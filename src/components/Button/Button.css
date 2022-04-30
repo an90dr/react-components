@@ -46,21 +46,21 @@
 /*End ofDisabled Link*/
 
 /*Primary*/
-.primary {
+.rcf-primary {
 	box-shadow:inset 0px 1px 0px 0px #a4e271;
 	background-color:#89c403;
 	border:1px solid #89c403;
 	color:#ffffff;
 	text-shadow:0px 1px 0px #528009;
 }
-.primary:hover {
+.rcf-primary:hover {
 	background-color:#77a809;
 }
 
 /*End of Primary Class*/
 
 /*Secondary Class*/
-.secondary {
+.rcf-secondary {
 	box-shadow:inset 0px 1px 0px 0px #97c4fe;
 	background-color:#3d94f6;
 	border:1px solid #337fed;
@@ -68,15 +68,29 @@
 	text-shadow:0px 1px 0px #1570cd;
 }
 
-.secondary:hover {
+.rcf-secondary:hover {
 	background-color:#2e6eb8;
 }
 /*End of Secondary Class*/
 
 /*Link Class*/
-.link {
+.rcf-link {
 	background-color: transparent;
 	border: 0px;
 	color:#1570cd;
 }
 /*End of Link Class*/
+
+/*Size Small*/
+.rcf-small {
+	height: 24px;
+}
+
+.rcf-medium {
+	height: 32px;
+}
+
+.rcf-large{
+	height: 40px;
+}
+/*End of Size Small*/
