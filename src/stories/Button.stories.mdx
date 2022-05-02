@@ -1,6 +1,7 @@
 import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import pkg from '../../package.json';
 import Button from '../components/Button';
+import Space from '../components/Space';
 
 <Meta
   title={'React Components Free v.' + pkg.version + '/Button'}
@@ -11,6 +12,10 @@ import Button from '../components/Button';
       control: { type: 'radio' },
       options: ['primary', 'secondary', 'link'],
     },
+    size: {
+      control: {type: 'radio'},
+      options: ['small', 'medium', 'large']
+    }
   }}
 />
 
@@ -121,11 +126,31 @@ ButtonOnClick.argTypes = {
 ></Button>
 ```
 
-### Button Small
+### Button Size
 
-<Story name='small'>
+<Story name='small/medium/large'>
   <Button size={'small'}>Button Small</Button>
+  <Space/>
+  <Button size={'medium'}>Button Medium</Button>
+  <Space/>
+  <Button size={'large'}>Button Large</Button>
 </Story>
+
+
+```jsx
+<Button
+  size={'small'}
+>Button Small</Button>
+
+<Button
+  size={'medium'}
+>Button Medium</Button>
+
+
+<Button
+  size={'large'}
+>Button Large</Button>
+```
 
 # Button Component API
 
