@@ -13,9 +13,9 @@ import Space from '../components/Space';
       options: ['primary', 'secondary', 'link'],
     },
     size: {
-      control: {type: 'radio'},
-      options: ['small', 'medium', 'large']
-    }
+      control: { type: 'radio' },
+      options: ['small', 'medium', 'large'],
+    },
   }}
 />
 
@@ -130,12 +130,11 @@ ButtonOnClick.argTypes = {
 
 <Story name='small/medium/large'>
   <Button size={'small'}>Button Small</Button>
-  <Space/>
+  <Space size={10} />
   <Button size={'medium'}>Button Medium</Button>
-  <Space/>
+  <Space size={10} />
   <Button size={'large'}>Button Large</Button>
 </Story>
-
 
 ```jsx
 <Button
