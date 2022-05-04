@@ -3,6 +3,7 @@ import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
 import VisibilityToggler from '../components/VisibilityToggler';
 import Modal from '../components/Modal';
 import Button from '../components/Button';
+import Space from '../components/Space';
 import pkg from '../../package.json';
 
 <Meta
@@ -22,9 +23,7 @@ import pkg from '../../package.json';
 ### Modal With title
 
 <Story name='With Title'>
-  <VisibilityToggler
-    modalProperties={{ visibility: false, title: 'Modal with title' }}
-  />
+  <VisibilityToggler modalProperties={{ visibility: false, title: 'Modal with title' }} />
 </Story>
 
 ### Modal With Footer
@@ -36,8 +35,13 @@ import pkg from '../../package.json';
       title: 'Modal with Footer',
       footer: (
         <div>
-          <button>OK</button>
-          <button>Cancel</button>
+          <Button buttontype={'primary'} size={'small'}>
+            OK
+          </Button>
+          <Space size={'small'} />
+          <Button buttontype={'primary'} size={'small'}>
+            Cancel
+          </Button>
         </div>
       ),
       titleSeparator: true,

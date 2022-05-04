@@ -16,7 +16,7 @@ export type BaseButtonProps = {
   /**
    * The size of the Button
    */
-  size: buttonSize;
+  size?: buttonSize;
 };
 
 export type ButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLButtonElement>;
