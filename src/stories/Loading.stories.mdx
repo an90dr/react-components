@@ -1,0 +1,25 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+import Loading from '../components/Loading';
+import pkg from '../../package.json';
+
+<Meta title={'React Components Free v.' + pkg.version + '/Loading'} component={Loading} />
+
+<Story name='Default'>
+  <Loading></Loading>
+</Story>
+
+<Story name='Loading Color'>
+  <Loading color={'#ff0000'}></Loading>
+  <Loading color={'salmon'}></Loading>
+  <Loading color={'gray'}></Loading>
+  <Loading color={'lightblue'}></Loading>
+</Story>
+
+<Story name='Loading Large'>
+  <Loading size={'large'}></Loading>
+  <Loading size={'medium'}></Loading>
+  <Loading size={'small'}></Loading>
+  <Loading size={'xsmall'}></Loading>
+</Story>
+
+<ArgsTable of={Loading} />

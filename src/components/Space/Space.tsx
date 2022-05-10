@@ -1,6 +1,6 @@
 import React, { CSSProperties, DetailedHTMLProps, HTMLAttributes } from 'react';
 import './Space.css';
-import { size } from '../../interface/SpaceType';
+import { size } from '../../interface/GeneralTypes';
 import { classPrefix } from '../../utils/Constants';
 
 export type SpaceProps = {
