@@ -1,0 +1,33 @@
+.rcf-loading {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    width: auto;
+  }
+
+.dot1, .dot2, .dot3 {
+    background: black;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    margin: 10px;
+  }
+  .dot1 {
+    animation: jump 1.6s -0.32s linear infinite;
+  }
+  .dot2 {
+    animation: jump 1.6s -0.16s linear infinite;
+  }
+  .dot3 {
+    animation: jump 1.6s linear infinite;
+  }
+  @keyframes jump {
+    0%, 80%, 100% { 
+      -webkit-transform: scale(0);
+      transform: scale(0);
+    } 40% { 
+      -webkit-transform: scale(2.0);
+      transform: scale(2.0);
+    }
+  }

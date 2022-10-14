@@ -82,17 +82,17 @@
 /*End of Link Class*/
 
 /*Size Small*/
-.rcf-small {
+.rcf-button.rcf-small {
 	height: 24px;
 	line-height: 12px;
 }
 
-.rcf-medium {
+.rcf-button.rcf-medium {
 	height: 32px;
 	line-height: 17px;
 }
 
-.rcf-large{
+.rcf-button.rcf-large{
 	height: 40px;
 	line-height: 20px;
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import Modal from '../Modal';
 import Button from '../Button';
-import { size, types as ButtonTypes } from '../../interface/ButtonTypes';
+import { types as ButtonTypes } from '../../interface/ButtonTypes';
+import { size } from '../../interface/GeneralTypes';
 type IProps = {
   childComponent: any;
   modalProperties: any;
@@ -35,7 +36,9 @@ class VisibilityToggler extends React.Component<IProps, IState> {
               this._handleVisibilityClick();
             }
           }}
-        >Show Modal</Button>
+        >
+          Show Modal
+        </Button>
 
         <Modal
           {...this.props.modalProperties}

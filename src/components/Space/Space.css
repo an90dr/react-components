@@ -1,3 +1,15 @@
-.rfc-space{
+.rcf-space.rcf-space{
     margin: 0 1rem;
+}
+
+.rcf-space.rcf-small{
+    margin: 0 12px;
+}
+
+.rcf-space.rcf-medium{
+    margin: 0 32px;
+}
+
+.rcf-space.rcf-large{
+    margin: 0 40px;
 }

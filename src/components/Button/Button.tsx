@@ -2,7 +2,8 @@ import React, { ButtonHTMLAttributes } from 'react';
 import { valueEmpty } from '../../utils/Utils';
 import { classPrefix } from '../../utils/Constants';
 import './Button.css';
-import { types, size } from '../../interface/ButtonTypes';
+import { types } from '../../interface/ButtonTypes';
+import { size } from '../../interface/GeneralTypes';
 
 export type buttonType = types.primary | types.secondary | types.link;
 export type buttonSize = size.small | size.medium | size.large;
@@ -16,7 +17,7 @@ export type BaseButtonProps = {
   /**
    * The size of the Button
    */
-  size: buttonSize;
+  size?: buttonSize;
 };
 
 export type ButtonProps = BaseButtonProps & ButtonHTMLAttributes<HTMLButtonElement>;

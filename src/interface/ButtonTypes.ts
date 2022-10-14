@@ -3,9 +3,3 @@ export enum types {
   secondary = 'secondary',
   link = 'link',
 }
-
-export enum size {
-  small = 'small',
-  medium = 'medium',
-  large = 'large',
-}
