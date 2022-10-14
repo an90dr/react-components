@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from '../Modal';
 import Button from '../Button';
-import { types as ButtonTypes } from '../../interface/ButtonTypes';
+import { size, types as ButtonTypes } from '../../interface/ButtonTypes';
 type IProps = {
   childComponent: any;
   modalProperties: any;
@@ -28,12 +28,14 @@ class VisibilityToggler extends React.Component<IProps, IState> {
     return (
       <>
         <Button
-          buttonType={ButtonTypes.primary}
-          label='Show Modal'
-          onClick={(event: any) => {
-            this._handleVisibilityClick();
+          buttontype={ButtonTypes.primary}
+          size={size.medium}
+          HTMLProps={{
+            onClick:(e:any) => {
+              this._handleVisibilityClick();
+            }
           }}
-        />
+        >Show Modal</Button>
 
         <Modal
           {...this.props.modalProperties}
