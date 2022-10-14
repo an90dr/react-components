@@ -1,7 +1,7 @@
 {
   "name": "react-components-free",
   "homepage": "http://react-components-free.whoopcy.com/docs/",
-  "version": "1.0.12",
+  "version": "1.0.14",
   "description": "react components for free",
   "main": "./dist/index.js",
   "module": "./dist/index.es.js",
@@ -50,7 +50,7 @@
   },
   "peerDependencies": {
     "react": "^18.2.0",
-    "react-dom": "^17.0.2"
+    "react-dom": "^18.2.0"
   },
   "repository": {
     "type": "git",
